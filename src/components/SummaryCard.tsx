@@ -1,27 +1,29 @@
-function SummaryCard() {
-  return (
-    <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-      <div className="rounded-xl bg-white p-6 shadow-sm">
-        <h2 className="text-sm text-gray-500">
-          Total Income
-        </h2>
+type SummaryCardProps = {
+  title: string
+  amount: number
+  type: 'income' | 'expense'
+}
 
-        <p className="mt-2 text-2xl font-semibold text-green-600">
-          +¥100,000
-        </p>
-      </div>
+function SummaryCard({ title, amount, type }: SummaryCardProps) {
+    const isIncome = type === 'income'
+    return (
+        <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="rounded-xl bg-white p-6 shadow-sm">
+            <h2 className="text-sm text-gray-500">
+            {title}
+            </h2>
 
-      <div className="rounded-xl bg-white p-6 shadow-sm">
-        <h2 className="text-sm text-gray-500">
-          Total Expenses
-        </h2>
+            <p 
+                className={`mt-2 text-2xl font-semibold ${
+                    isIncome ? 'text-green-600' : 'text-red-600'
+                }`}
+            >
+            {isIncome ? '+' : '-'}¥{amount.toLocaleString()}
+            </p>
+        </div>
 
-        <p className="mt-2 text-2xl font-semibold text-red-600">
-          -¥50,000
-        </p>
-      </div>
-    </section>
-  )
+        </section>
+    )
 }
 
 export default SummaryCard

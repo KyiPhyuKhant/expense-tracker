@@ -17,10 +17,25 @@ function App() {
           </p>
         </header>
 
-        <BalanceCard />
+        {/* Balance */}
+        <BalanceCard balance={75000} currency="¥" />
 
-        <SummaryCard />
+        {/* Summary */}
+        <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <SummaryCard
+            title="Total Income"
+            amount={100000}
+            type="income"
+          />
 
+          <SummaryCard
+            title="Total Expenses"
+            amount={25000}
+            type="expense"
+          />
+        </section>
+
+        {/* Transaction History */}
         <section className="rounded-xl bg-white p-6 shadow-sm">
           <h2 className="mb-4 text-xl font-semibold text-gray-900">
             Transaction History
