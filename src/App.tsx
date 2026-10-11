@@ -1,5 +1,7 @@
 import BalanceCard from './components/BalanceCard'
 import SummaryCard from './components/SummaryCard'
+import TransactionList from './components/TransactionList'
+import { transactions } from './data/transactions'
 
 function App() {
   return (
@@ -41,9 +43,7 @@ function App() {
             Transaction History
           </h2>
 
-          <p className="text-gray-500">
-            No transactions yet.
-          </p>
+          <TransactionList transactions={transactions} />
         </section>
 
       </div>
